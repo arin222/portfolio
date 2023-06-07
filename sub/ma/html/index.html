@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마녀공장 모바일</title>
+    <link href="css/main.css" rel="stylesheet" />
+    <script>
+        window.onload = function () {
+            //메뉴열기
+            let bodyTag = document.getElementsByTagName('body')[0];
+
+            let open = document.getElementById('open_Btn');
+            let menu = document.getElementById('menu');
+            menu.style.display = 'none';
+
+            open.onclick = function () {
+                if (menu.style.display == 'none') {
+                    menu.style.display = 'block'
+                    //배경컬러 나타나기
+                    bodyTag.classList.add('body_bg');
+                }
+            }
+            //메뉴닫기
+            let close = document.getElementById('close_Btn');
+            close.onclick = function () {
+                if (menu.style.display == 'block') {
+                    menu.style.display = 'none'
+                    bodyTag.classList.remove('body_bg');
+
+                }
+            }
+
+            //list 누르면 바뀌기
+            let best = document.getElementsByClassName('best')[0];
+            let bestMenu = best.getElementsByClassName('best_menu')[0];
+            let bestMenuLi = bestMenu.getElementsByTagName('li');
+            //범주가 넓은 순서대로 작성해야 적용됨
+            let bestList = best.getElementsByClassName('list');
+            for (let i = 0; i < bestMenuLi.length; i++) {
+                bestMenuLi[i].onclick = function () {
+                    bestMenuLi[0].classList.remove('on');
+                    bestMenuLi[1].classList.remove('on');
+                    bestMenuLi[2].classList.remove('on');
+                    bestMenuLi[3].classList.remove('on');
+
+                    bestMenuLi[i].classList.add('on');
+
+                    bestList[0].classList.remove('on');
+                    bestList[1].classList.remove('on');
+                    bestList[2].classList.remove('on');
+                    bestList[3].classList.remove('on');
+
+                    bestList[i].classList.add('on');
+                }
+            }
+            //event 이전다음버튼
+            let event = document.getElementsByClassName('event')[0];
+            let eventItem = event.getElementsByClassName('item');
+
+            let eventPrev = event.getElementsByClassName('prev')[0];
+            let eventNext = event.getElementsByClassName('next')[0];
+            let i = 0;
+
+            eventNext.onclick = function () {
+                i++;
+                if (i >= eventItem.length) {
+                    i = eventItem.length - 1;
+                }
+                eventItem[0].classList.remove('on');
+                eventItem[1].classList.remove('on');
+                eventItem[2].classList.remove('on');
+                
+                eventItem[i].classList.add('on');
+            }
+            eventPrev.onclick = function() {
+                i--;
+                if (i <= 0) {
+                    i = 0;
+                }
+                eventItem[0].classList.remove('on');
+                eventItem[1].classList.remove('on');
+                eventItem[2].classList.remove('on');
+                eventItem[i].classList.add('on');
+            }
+
+        }//window.load
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="img/logo.png" alt="마녀공장로고" />
+                </a>
+            </h1>
+            <div class="menu_open">
+                <img id="open_Btn" src="img/menu.png" alt="메뉴보기" />
+            </div><!-- .menu_open end -->
+            <nav id="menu">
+                <div class="menu_close">
+                    <img id="close_Btn" src="img/close.png" alt="메뉴닫기" />
+                </div><!-- .menu_close end -->
+                <ul >
+                    <li class="depth01">
+                        <a href="#">브랜드</a>
+
+                    </li><!-- depth01 end -->
+                    <li class="depth01">
+                        <a href="#">특가</a>
+                    </li><!-- depth01 end -->
+                    <li class="depth01">
+                        <a href="#">피부타입별</a>
+                    </li><!-- depth01 end -->
+                    <li class="depth01">
+                        <a href="#">카테고리별</a>
+                    </li><!-- depth01 end -->
+                    <li class="depth01">
+                        <a href="#">라인별</a>
+                        <ul class="depth02">
+                            <li><a href="#"></a>갈락</li>
+                            <li><a href="#"></a>미피다</li>
+                            <li><a href="#"></a>퓨터 클렌징</li>
+                            <li><a href="#"></a>아워 비건</li>
+                            <li><a href="#"></a>바닐라부티크</li>
+                            <li><a href="#"></a>온천수</li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- depth01 end -->
+                    <li class="depth01">
+                        <a href="#">브랜드별</a>
+                    </li><!-- depth01 end -->
+                    <li class="depth01">
+                        <a href="#">신상품</a>
+                    </li><!-- depth01 end -->
+                    <li class="depth01">
+                        <a href="#">이벤트</a>
+                    </li><!-- depth01 end -->
+                </ul>
+            </nav>
+        </div><!-- .inner end -->
+    </header>
+    <main>
+        <section class="main_visual">
+            <img src="img/main_visual.jpg" alt="히더라인" />
+            <div>
+                <h2>히더 진정 라인 런칭 기념
+                    Special Week </h2>
+                <a href="#">자세히보기</a>
+            </div>
+        </section><!-- .main_visual end -->
+        <section class="best">
+            <div class="inner">
+                <h3>best sellers :</h3>
+                <ul class="best_menu">
+                    <li class="on">전체</li>
+                    <li>클렌징</li>
+                    <li>스킨 토너 미스트</li>
+                    <li>앰플 에센스 오일</li>
+                </ul><!-- best_menu end-->
+                <div class="list on">
+                    <div class="item">
+                        <figure>
+                            <img src="img/img01.jpg" alt="나이아신에센스" />
+                        </figure>
+                        <div class="text">
+                            <h4>갈라토미 나이아신 에센스50ml</h4>
+                            <div>
+                                <p>29,000원</p>
+                                <ul>
+                                    <li>18,800원</li>
+                                    <li>35%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/img02.jpg" alt="클렌징오일" />
+                        </figure>
+                        <div class="text">
+                            <h4>퓨어 클렌징 오일 200ml</h4>
+                            <div>
+                                <p>29,000원</p>
+                                <ul>
+                                    <li>17,400원</li>
+                                    <li>40%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                </div><!-- .list end /전체-->
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/img02.jpg" alt="클렌징오일" />
+                        </figure>
+                        <div class="text">
+                            <h4>퓨어 클렌징 오일 200ml</h4>
+                            <div>
+                                <p>29,000원</p>
+                                <ul>
+                                    <li>17,400원</li>
+                                    <li>40%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/img03.jpg" alt="오일킬패드" />
+                        </figure>
+                        <div class="text">
+                            <h4>블랙헤드 퓨어 클렌징 오일 킬패드 50매</h4>
+                            <div>
+                                <p>20,000원</p>
+                                <ul>
+                                    <li>15,000원</li>
+                                    <li>25%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                </div><!-- .list end /클렌징-->
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/img04.png" alt="갈락토미세트" />
+                        </figure>
+                        <div class="text">
+                            <h4>갈락토미 토너&크림 세트 (+증정)</h4>
+                            <div>
+                                <p>64,000원</p>
+                                <ul>
+                                    <li>34,400원</li>
+                                    <li>46%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/img05.png" alt="에센스패드" />
+                        </figure>
+                        <div class="text">
+                            <h4>히더 카밍 에센스 패드 60매</h4>
+                            <div>
+                                <p>28,000원</p>
+                                <ul>
+                                    <li>22,400원</li>
+                                    <li>20%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                </div><!-- .list end /스킨, 토너, 미스트-->
+                <div class="list">
+                    <div class="item">
+                        <figure>
+                            <img src="img/img04.png" alt="에센스크림세트" />
+                        </figure>
+                        <div class="text">
+                            <h4>갈락토미 나이아신 에센스&크림 세트</h4>
+                            <div>
+                                <p>64,000원</p>
+                                <ul>
+                                    <li>34,400원</li>
+                                    <li>46%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <figure>
+                            <img src="img/img06.png" alt="에센스로센세트" />
+                        </figure>
+                        <div class="text">
+                            <h4>갈락토미 나이아신 에센스&로션 세트(+증정)</h4>
+                            <div>
+                                <p>49,000원</p>
+                                <ul>
+                                    <li>28,000원</li>
+                                    <li>42%</li>
+                                </ul>
+                            </div>
+                        </div><!-- .text end -->
+                    </div><!-- .item end -->
+                </div><!-- .list end /클렌징-->
+                <a href="#">전체보기</a>
+            </div><!-- .inner end -->
+        </section><!-- .best end -->
+        <section class="event">
+            <div class="inner">
+                <div class="title">
+                    <h3>event :</h3>
+                    <a href="#">전체보기</a>
+                </div><!-- .title end -->
+                <div class="item on">
+                    <a href="#">
+                        <figure>
+                            <img src="img/event.jpg" alt="문이미지" />
+                        </figure>
+                        <div>
+                            <h4>마녀공장 집들이에 초대합니다!</h4>
+                            <p>어서오세요 공식몰이 새단장했어요<br />
+                                할인 쿠폰&선착순 1000명 사은품 증정</p>
+                            <span>2023.04.04 am 10:00 - 04.30 pm 11:59</span>
+                        </div>
+                    </a>
+                </div><!-- .item end / 1-->
+                <div class="item">
+                    <a href="#">
+                        <figure>
+                            <img src="img/main_visual.jpg" alt="보라이미지" />
+                        </figure>
+                        <div>
+                            <h4>마녀공장 집들이에 초대합니다!2</h4>
+                            <p>어서오세요 공식몰이 새단장했어요<br />
+                                할인 쿠폰&선착순 1000명 사은품 증정</p>
+                            <span>2023.04.04 am 10:00 - 04.30 pm 11:59</span>
+                        </div>
+
+                    </a>
+                </div><!-- .item end / 2-->
+                <div class="item">
+                    <a href="#">
+                        <figure>
+                            <img src="img/main_visual.jpg" alt="보라이미지" />
+                        </figure>
+                        <div>
+                            <h4>마녀공장 집들이에 초대합니다!3</h4>
+                            <p>어서오세요 공식몰이 새단장했어요<br />
+                                할인 쿠폰&선착순 1000명 사은품 증정</p>
+                            <span>2023.04.04 am 10:00 - 04.30 pm 11:59</span>
+                        </div>
+
+                    </a>
+                </div><!-- .item end / 3-->
+
+            </div><!-- .inner end -->
+            <div class="btn">
+                <button class="prev on">이전</button>
+                <button class="next">다음</button>
+                <!-- * p, ul-li등으로 만들어도 상관없음 -->
+            </div><!-- btn end -->
+        </section><!-- event end -->
+    </main>
+    <footer>
+        <p>COPYRIGHT ©MANYOFACTORY
+            ALL RIGHTS RESERVED.</p>
+    </footer>
+</body>
+
+</html>

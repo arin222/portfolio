@@ -1,0 +1,345 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+body {
+    line-height: 1;
+    color: #333;
+    font-family: 'IBMPlexSansKR-Regular';
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 메뉴아이콘 클릭 시 나타남 */
+body.body_bg::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #0000006f;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.inner {
+    max-width: 100%;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+}
+
+header {
+    height: 70px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+header .inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .inner h1 {
+    height: 25px;
+}
+/* 스크롤바 스타일 없애기 */
+header .inner nav::-webkit-scrollbar{
+    display: none;
+}
+header .inner nav {
+    width: 300px;
+    background-color: #fff;
+    position: fixed;/* 화면안에서 스크롤바 고정을 위함 */
+    top: 0;
+    right: 0;
+    height: 100vh;
+    display: none;
+    overflow: auto;/* 스크롤바 생성 */
+}
+header .inner nav .menu_close{
+    position: absolute;
+    right:20px;
+    top:20px;
+}
+header .inner nav>ul {
+    padding: 0 20px;
+    margin-top: 130px;
+    font-size: 18px;
+}
+
+header .inner nav>ul .depth01 {
+    border-bottom: 1px solid #838383;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+header .inner nav>ul .depth01 .depth02 li {
+    font-size: 16px;
+    margin-top: 15px;
+    color:#838383;
+}
+
+header .inner .menu_open {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+header .inner .menu_open img {
+    width: 100%;
+    height: 100%;
+}
+
+.main_visual {
+    height: 750px;
+}
+
+.main_visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main_visual div {
+    widtH: 100%;
+    position: absolute;
+    top: 110px;
+    left: 0;
+    text-align: center;
+
+}
+
+.main_visual div h2 {
+    font-size: 35px;
+    line-height: 1.3;
+}
+
+.main_visual div a {
+    width: 170px;
+    height: 45px;
+    border: 1px solid #333;
+    border-radius: 40px;
+    text-align: center;
+    line-height: 45px;
+    display: block;
+    margin: 30px auto;
+}
+
+.best {
+    margin-top: 60px;
+}
+
+.best h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.best .best_menu  {
+margin-bottom: 10px;
+}
+.best .best_menu li {
+    display: inline-block;
+    margin-right: 15px;
+    /* margin: 0 7.5px 15px; */
+    font-size: 14px;
+}
+
+/* .best .inner .best_menu li:nth-child(1) {
+    color: #ff0000;
+} */
+.best .best_menu li.on {
+    color: #BB181D;
+}
+
+.best .list {
+    display: none;
+    /* display: flex; */
+    justify-content: space-between;
+}
+
+.best .list.on {
+    display: flex;
+    /*block 적용 시 item들이 세로로 정렬됨 */
+}
+
+.best .list .item {
+    width: calc(100% / 2 - 5px);
+    /* 모바일 버전 제작 시 무조건 %나 vh로 제작 */
+
+}
+
+.best .list .item figure {
+    width: 100%;
+    height: 200px;
+}
+
+.best .list .item figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.best .list .item .text h4 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.best .list .item .text div p {
+    color: #838383;
+    text-decoration: line-through;
+}
+
+.best .list .item .text div ul {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.best .list .item .text div ul li:last-child {
+    color: #BB181D;
+}
+
+/* .best .inner .list:nth-of-type(2) {
+    display: none;
+} */
+
+.best .inner>a {
+    display: block;
+    width: 100%;
+    height: 35px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    margin-top: 30px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+}
+
+.event {
+    position: relative;
+    margin-top: 60px;
+}
+
+.event .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.event .title h3 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.event .title a {
+    padding-right: 15px;
+}
+
+.event .title a::before {
+    content: '';
+    width:25px;
+    height: 24px;
+    background-image: url(../img/arrow.png);
+    background-size: 100% 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+
+.event .item {
+    display: none;
+}
+
+.event .item.on {
+    display: block;
+}
+
+.event .item figure {
+    width: 100%;
+    height: 150px;
+}
+
+
+
+.event .item figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event .item div h4 {
+    margin: 10px 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.event .item div p {
+    line-height: 1.3;
+    margin-bottom: 30px;
+}
+
+.event .item div span {
+    font-size: 14px;
+    color: #838383;
+}
+
+.event .btn button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #BB181D;
+    color: #BB181D;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+
+.event .btn button.next {
+    left: auto;
+    right: 15px;
+}
+
+footer {
+    margin-top: 60px;
+    padding: 20px 0;
+    background-color: #BB181D;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.3;
+}
