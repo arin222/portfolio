@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유니테크</title>
+    <link href="css/uni.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        $(function () {
+            var swiper = new Swiper(".main_visual", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+            $('.play').click(function () {
+                swiper.autoplay.start();
+            })
+            $('.stop').click(function () {
+                swiper.autoplay.stop();
+            })
+            $('.play').click(function () {
+                if ($('.stop').css('display') == 'none')
+                    $('.stop').css('display', 'block')
+                $('.play').css('display', 'none')
+
+            })
+            $('.stop').click(function () {
+                if ($('.play').css('display') == 'none')
+                    $('.play').css('display', 'block')
+                $('.stop').css('display', 'none')
+            })
+
+        })
+        window.onload = function () {
+            let hd = document.getElementsByTagName('header')[0];
+            let menu = document.getElementsByClassName('menu')[0];
+            let menuOpen = menu.getElementsByTagName('img')[0];
+            let nav = document.getElementsByTagName('nav')[0];
+
+            let menuClose = nav.getElementsByTagName('img')[0];
+            let se01 = document.getElementsByClassName('se01')[0];
+            let se01Text = se01.getElementsByClassName('text')[0];
+            let se02 = document.getElementsByClassName('se02')[0];
+            let se02H4 = se02.getElementsByTagName('h4')[0];
+
+            nav.style.display = 'none';
+            menuOpen.onclick = function () {
+                console.log(menuOpen)
+                if (nav.style.display == 'none') {
+                    nav.style.display = 'block'
+                }
+            }
+            menuClose.onclick = function (){
+                if(nav.style.display == 'block'){
+                    nav.style.display = 'none'
+                }
+            }
+            window.onscroll = function () {
+                let scrollBar = window.scrollY;
+                console.log(scrollBar);
+                console.log(hd.offsetTop);
+
+                if (hd.offsetTop < scrollBar) {
+                    hd.classList.add('on');
+                } else {
+                    hd.classList.remove('on');
+                }
+                //se01 Text 나타나기
+                if (se01.offsetTop <= scrollBar) {
+                    se01Text.classList.add('on');
+                } else {
+                    se01Text.classList.remove('on')
+                }
+                //se02 Text 나타나기
+                if (se02.offsetTop <= scrollBar) {
+                    se02H4.classList.add('on');
+                } else {
+                    se02H4.classList.remove('on')
+                }
+            }
+            //se01 list 나타나기
+            let se01Btn = se01.getElementsByClassName('list_btn')[0];
+            let se01Li = se01Btn.getElementsByTagName('li');
+            let se01Item = se01.getElementsByClassName('item');
+
+            for (let i = 0; i < se01Li.length; i++) {
+                console.log(se01Li[i].children);
+                se01Li[i].onclick = function () {
+                    se01Li[0].classList.remove('on');
+                    se01Li[1].classList.remove('on');
+                    se01Li[2].classList.remove('on');
+
+                    se01Li[i].classList.add('on');
+
+                    se01Item[0].classList.remove('on');
+                    se01Item[1].classList.remove('on');
+                    se01Item[2].classList.remove('on');
+                    se01Item[i].classList.add('on');
+
+
+                }
+            }
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="img/logo_color.svg" alt="top_logo" />
+                </a>
+            </h1>
+            <div class="menu">
+                <a href="#">KR</a>
+                <a href="#">EN</a>
+                <img src="img/menu.png" alt="menu" />
+                <nav>
+                    <img src="img/close.png" alt="menu_close" />
+                    <ul>
+                        <li class="depth01">
+                            <a href="#">사업분야</a>
+                            <ul class="depth02">
+                                <li><a href="#">OVERVIEW</a></li>
+                                <li><a href="#">MOBILITY</a></li>
+                                <li><a href="#">ENERGY</a></li>
+                                <li><a href="#">INNOVATION</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">브랜드</a>
+                            <ul class="depth02">
+                                <li><a href="#">OVERVIEW</a></li>
+                                <li><a href="#">UniCore</a></li>
+                                <li><a href="#">UniShield</a></li>
+                                <li><a href="#">UniPad</a></li>
+                                <li><a href="#">ULBM Series</a></li>
+                                <li><a href="#">UEA Series</a></li>
+                                <li><a href="#">UniChock</a></li>
+                                <li><a href="#">UniLight</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">사업분야</a>
+                            <ul class="depth02">
+                                <li><a href="#">OVERVIEW</a></li>
+                                <li><a href="#">MOBILITY</a></li>
+                                <li><a href="#">ENERGY</a></li>
+                                <li><a href="#">INNOVATION</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">기업소개</a>
+                            <ul class="depth02">
+                                <li><a href="#">기업소개</a></li>
+                                <li><a href="#">연혁/수상인증</a></li>
+                                <li><a href="#">R&D</a></li>
+                                <li><a href="#">사업장</a></li>
+                                <li><a href="#">Corporate Identity</a></li>
+                                <li><a href="#">Uni-in</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">지속가능경영</a>
+                            <ul class="depth02">
+                                <li><a href="#">지속가능경영</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">홍보센터</a>
+                            <ul class="depth02">
+                                <li><a href="#">NEWS</a></li>
+                                <li><a href="#">홍보영상</a></li>
+                                <li><a href="#">기업소개서</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">고객문의</a>
+                            <ul class="depth02">
+                                <li><a href="#">고객문의</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div><!-- menu end -->
+        </div><!-- .inner end -->
+    </header>
+    <main>
+
+        <div class="swiper main_visual">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/visual0.jpg" alt="노을" />
+                    <div class="inner">
+                        <h2>
+                            더 나은 미래를 위한<br />
+                            모빌리티 솔루션을 제공합니다.
+                        </h2>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/visual1.jpg" alt="숲" />
+                    <div class="inner">
+
+                        <h2>
+                            더 나은 미래를 위한<br />
+                            모빌리티 솔루션을 제공합니다.
+                        </h2>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/visual2.jpg" alt="대교" />
+                    <div class="inner">
+
+                        <h2>
+                            더 나은 미래를 위한<br />
+                            모빌리티 솔루션을 제공합니다.
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination">
+            </div>
+            <div class="swiper-play"></div>
+            <div class="swiper-stop"></div>
+            <div class="swiper-btn">
+                <div class="play"><img src="img/play.png" alt="재생" /></div>
+                <div class="stop"><img src="img/stop.png" alt="멈춤" /></div>
+            </div>
+
+
+        </div><!-- main_visual end -->
+        <section class="se01">
+            <div class="inner">
+                <div class="text">
+                    <h4> <span>24년 이상의</span><br />
+                        특수화학 솔루션 전문기업 </h4>
+                    <p>접착제 솔루션 전문기업 유니테크는 자동차, 조선/해양, EV, 전자 등 다양한 산업분야에서 새로운 비즈니스를 창출해 나갑니다.</p>
+                </div><!-- text end -->
+                <div class="list">
+                    <ul class="list_btn">
+                        <li class="on">MOBILITY</li>
+                        <li>ENERGY</li>
+                        <li>INNOVATION</li>
+                    </ul>
+                    <div class="item on">
+                        <img src="img/business_slide_img.jpg" alt="자동차" />
+                        <div>
+                            <p>첨단 모빌리티 소재의 중심</p>
+                            <h3>MOBILITY</h3>
+                            <span>보다 안전하고, 보다 가벼워질 수 있는 모빌리티 소재를 제공합니다.</span>
+                            <a href="#">AUTOMOTIVE</a>
+                        </div>
+                    </div><!-- item end -->
+                    <div class="item">
+                        <img src="img/business_slide_img2.jpg" alt="자동차" />
+                        <div>
+                            <p>지속가능한 에너지 솔루션</p>
+                            <h3>ENERGY</h3>
+                            <span>독창적인 기술력과 우수한 품질로 지속가능한 에너지 솔루션을 제안합니다. </span>
+                            <a href="#">LNG CARRIER</a>
+                            <a href="#">BATTERY</a>
+                        </div>
+                    </div><!-- item end -->
+                    <div class="item">
+                        <img src="img/business_slide_img3.jpg" alt="자동차" />
+                        <div>
+                            <p>미래 혁신 소재 구현
+                            </p>
+                            <h3>INNOVATION</h3>
+                            <span>극한의 환경에도 적용할 수 있는 첨단 접착 소재를 구현합니다.</span>
+                            <a href="#">ELECTRONICS</a>
+                            <a href="#">AEROSPACE</a>
+                        </div>
+                    </div><!-- item end -->
+
+                </div><!-- list end -->
+            </div><!-- inner end -->
+        </section><!-- se01 end -->
+        <section class="se02">
+            <div class="inner">
+                <h4>우수한 품질과 기술로 최상의 고객만족을<br />
+                    실현해나가겠습니다.</h4>
+                <div>
+                    <div>
+                        <strong>20<span>년</span></strong>
+                        <p>자동차, 선박제품 연구개발 경력</p>
+                    </div>
+                    <div>
+                        <strong>15<span>만톤</span></strong>
+                        <p>전 세계 제품 제조 역량</p>
+                    </div>
+                    <div>
+                        <strong>250<span>척</span></strong>
+                        <p>LNG Carrier 누적 건조척 수</p>
+                    </div>
+                    <div>
+                        <strong>100<span>개</span></strong>
+                        <p>공급 고객사</p>
+                    </div>
+                </div>
+            </div>
+            <div class="img_box">
+                <div class="inner">
+                    <p>진보된 기술력을 바탕으로 고객에게<br />
+                        지속가능한 경쟁력을 제공하는 유니테크로 <br />
+                        발전해 나가겠습니다.
+                    </p>
+                </div><!-- img_box end -->
+            </div> <!-- inner end -->
+        </section><!-- se02 end -->
+    </main>
+    <footer>
+        <div class="inner">
+            <p>ⓒ 2023 Unitech Co., Ltd. All rights reserved.</p>
+        </div><!-- inner end -->
+    </footer>
+</body>
+
+</html>
