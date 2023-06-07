@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스사이공</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <link href="css/main.css" rel="stylesheet" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        window.onload = function () {
+            var swiper = new Swiper(".main_visual_list", {
+                cssMode: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                mousewheel: true,
+                keyboard: true,
+            });
+
+            var swiper = new Swiper(".se01_list", {
+                autoplay: {
+                    delay: 1500,
+
+                },
+                pagination: {
+                    clickable: true,
+                    //클릭시 페이지 이동
+                },
+                slidesPerView: 5.5,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination01",
+                    clickable: true,
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 2.5,
+                        spaceBetween: 20,
+
+                    },
+                    640: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    1920: {
+                        slidesPerView: 5.5,
+                        spaceBetween: 20,
+                    }
+                }
+            });
+            var swiper = new Swiper(".se02_list", {
+                effect: "cards",
+                grabCursor: true,
+            });
+
+            let menuOpen = document.getElementById('open');
+            let menuClose = document.getElementById('close');
+            let mb = document.getElementsByClassName('mb')[0];
+
+            mb.style.display = 'none';
+            menuOpen.onclick = function () {
+                if (mb.style.display == 'none') {
+                    mb.style.display = 'block'
+                    menuOpen.style.display = 'none'
+                }
+            }
+            menuClose.onclick = function () {
+                if (mb.style.display == 'block') {
+                    mb.style.display = 'none'
+                    menuOpen.style.display = 'block'
+                }
+            }
+            //클릭시 2차메뉴 나타나기
+            let mbDp01 = mb.getElementsByClassName('depth01');
+            let mbDp02 = mb.getElementsByClassName('depth02');
+
+            for (let i = 0; i < mbDp01.length; i++) {
+                let mbDp02children = mbDp01[i].children[1];
+
+                mbDp01[i].onclick = function () {
+                    if (mbDp02children.style.display == 'none') {
+                        mbDp02children.style.display = 'block'
+                    } else { mbDp02children.style.display = 'none' }
+                }
+
+            }
+
+
+
+            let se01Menu = document.querySelectorAll('.se01_menu li');
+            let se01List = document.querySelectorAll('.se01_list');
+            for (let i = 0; i < se01Menu.length; i++) {
+                se01Menu[i].onclick = function () {
+                    se01Menu.forEach(function (item) {
+                        item.classList.remove('on');
+                    })
+                    se01List.forEach(function (item) {
+                        item.classList.remove('on')
+                    })
+                    se01List[i].classList.add('on');
+                    se01Menu[i].classList.add('on');
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <h1>
+                <a href="#"><img src="img/top_logo.png" alt="미스사이공로고" /></a>
+            </h1>
+            <nav class="pc">
+            
+                    <li class="depth01">
+                        <a href="#">브랜드 소개</a>
+                        <ul class="depth02">
+                            <li><a href="#">브랜드 스토리</a></li>
+                            <li><a href="#">오시는 길</a></li>
+                        </ul><!-- depth02 end -->
+                    </li><!-- depth01 end -->
+                
+                <li class="depth01">
+                    <a href="#">메뉴 소개</a>
+                    <ul class="depth02">
+                        <li><a href="#">쌀국수</a></li>
+                        <li><a href="#">식사</a></li>
+                        <li><a href="#">사이드</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+                <li class="depth01">
+                    <a href="#">매장 정보</a>
+                    <ul class="depth02">
+                        <li><a href="#">매장찾기</a></li>
+                        <li><a href="#">점주 인터뷰</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+                <li class="depth01">
+                    <a href="#">창업 안내</a>
+                    <ul class="depth02">
+                        <li><a href="#">가맹절차</a></li>
+                        <li><a href="#">가맹점 개설 비용</a></li>
+                        <li><a href="#">자주하는 질문</a></li>
+                        <li><a href="#">상담신청</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+                <li class="depth01">
+                    <a href="#">커뮤니티</a>
+                    <ul class="depth02">
+                        <li><a href="#">소식</a></li>
+                        <li><a href="#">고객의 소리</a></li>
+                        <li><a href="#">채용정보</a></li>
+                        <li><a href="#">이벤트</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+            </nav><!-- pc end -->
+            <img id="open" src="img/mb_open.png" alt="메뉴열기" />
+            <nav class="mb">
+                <img id="close" src="img/mb_close.png" alt="메뉴닫기" />
+                <ul>
+                    <li class="depth01 ">
+                        <a href="#">브랜드 소개</a>
+                        <ul class="depth02">
+                            <li><a href="#">브랜드 스토리</a></li>
+                            <li><a href="#">오시는 길</a></li>
+                        </ul><!-- depth02 end -->
+                    </li><!-- depth01 end -->
+                </ul>
+                <li class="depth01">
+                    <a href="#">메뉴 소개</a>
+                    <ul class="depth02">
+                        <li><a href="#">쌀국수</a></li>
+                        <li><a href="#">식사</a></li>
+                        <li><a href="#">사이드</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+                <li class="depth01">
+                    <a href="#">매장 정보</a>
+                    <ul class="depth02">
+                        <li><a href="#">매장찾기</a></li>
+                        <li><a href="#">점주 인터뷰</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+                <li class="depth01">
+                    <a href="#">창업 안내</a>
+                    <ul class="depth02">
+                        <li><a href="#">가맹절차</a></li>
+                        <li><a href="#">가맹점 개설 비용</a></li>
+                        <li><a href="#">자주하는 질문</a></li>
+                        <li><a href="#">상담신청</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+                <li class="depth01">
+                    <a href="#">커뮤니티</a>
+                    <ul class="depth02">
+                        <li><a href="#">소식</a></li>
+                        <li><a href="#">고객의 소리</a></li>
+                        <li><a href="#">채용정보</a></li>
+                        <li><a href="#">이벤트</a></li>
+                    </ul><!-- depth02 end -->
+                </li><!-- depth01 end -->
+                </ul>
+            </nav><!-- mb end -->
+        </div><!-- inner end -->
+    </header>
+    <section class="main_visual">
+        <div class="swiper main_visual_list">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/main_visual.jpg" alt="건강한 월남쌈" />
+                    <div>
+                        <p>아홉가지 신선한 재료가 가득 들어간</p>
+                        <h3>건강한 월남쌈</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/main_visual02.jpg" alt="홈페이지 새단장" />
+                    <h3>미스사이공 홈페이지가 새로운 모습으로 오픈했습니다.</h3>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="move_text">
+            <p>Tasty - Nutritional Complete - Plant Based - Super Convenient - Healthy Planet - Great Value -
+                Extraordinary
+                Noodle - Low Calorie Tasty - Nutritional Complete - Plant Based - Super Convenient - Healthy Planet -
+                Great Value -
+                Extraordinary
+                Noodle - Low Calorie</p>
+        </div><!-- move_text end -->
+    </section><!-- main_visual end -->
+    <section class="se01">
+        <img src="img/se01_menu.png" alt="메뉴이미지" />
+        <strong>영양이 풍부한 재료로 꽉 채운 건강한 한끼, 미스사이공의 메뉴를 소개합니다</strong>
+        <ul class="se01_menu">
+            <li class="on">쌀국수</li>
+            <li>식사</li>
+            <li>사이드</li>
+        </ul>
+        <div class="swiper se01_list on">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide item">
+                    <img src="img/se01_img01.png" alt="사골쌀국수" />
+                    <div class="line"></div>
+                    <div>
+                        <h4>사골 쌀국수</h4>
+                        <p>진한사골 육수에 소고기가 올라가
+                            든든한 한끼! 사골쌀국수</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img02.png" alt="얼큰쌀국수" />
+                    <div class="line"></div>
+                    <div>
+                        <h4>얼큰 쌀국수</h4>
+                        <p>짬뽕스타일의 진하고 얼큰한 육수에
+                            돼지고기토핑이 어우러진 얼큰쌀국수</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img03.png" alt="닭쌀국수" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>닭 쌀국수</h4>
+                        <p>담백한육수에 숙주와 양파, 닭고기
+                            토핑이 어우러진 닭쌀국수</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img04.png" alt="마라쌀국수" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>마라 쌀국수</h4>
+                        <p>진한 사골육수에 미스사이공 만의
+                            비법소스 를 사용한 중독성 강한 마라쌀국수</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img05.png" alt="사골쌀국수" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>분보싸오</h4>
+                        <p>여러가지 야채와 파인애플을
+                            새콤달콤한 소스에 비벼먹는
+                            베트남식 비빔쌀국수</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img06.png" alt="매운쌀국수" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>매운 쌀국수</h4>
+                        <p>물육수와 크랩볼과 새우볼을 한 그릇에 담아 얼큰하고 시원한 매운쌀국수</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img07.png" alt="분짜" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>분짜</h4>
+                        <p>숯불고기와 쌀국수의 환상적인 만남</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img08.png" alt="분보후에" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>분보후에</h4>
+                        <p>얼큰함과 상큼함의 이색적인 맛</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img09.png" alt="사이공 볶음면" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>사이공 볶음면</h4>
+                        <p>달콤 고소한 땅콩소스에 여러 토핑과 쌀국수를 볶아낸 볶음면</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img10.png" alt="숯불 냉 쌀국수" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>숯불 냉 쌀국수</h4>
+                        <p>한국인 입맛에 딱 맞는 숯불향 가득한 얼큰냉쌀국수</p>
+                    </div>
+                </div>
+
+            </div>
+        </div><!-- list end /1 -->
+        <div class="swiper se01_list">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-1.png" alt="껌승" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>껌승</h4>
+                        <p>숯불향 가득한 돼지고기와 사이공특제소스의 베트남식 덮밥</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-2.png" alt="사이공 반미" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>사이공 반미</h4>
+                        <p>21CM 현지 레시피 바게트빵에 파향 듬뿍 배어있는 돼지고기 가득한 사이공반미</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-3.png" alt="사이공 덮밥" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>사이공 덮밥</h4>
+                        <p>특제소스에 소고기를 볶아낸 사이공덮밥</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-4.png" alt="사이공 볶음밥" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>사이공 볶음밥</h4>
+                        <p>특제소스에 여러 토핑과 파인애플을 볶아낸 볶음밥</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-5.png" alt="월남쌈" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>월남쌈</h4>
+                        <p>아홉가지 신선한 재료, 세가지 소스로 혼자서도 간편하게 즐길 수 있는 건강 다이어트식 월남쌈</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-6.png" alt="계란 볶음밥" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>계란 볶음밥</h4>
+                        <p>어린이들이 좋아하는 계란이 듬뿍 새콤달콤한 소스로 볶아낸 계란볶음밥</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-7.png" alt="숯불덮밥" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>숯불덮밥</h4>
+                        <p>돼지고기를 광양식 양념으로 볶아낸 덮밥의 왕 숯불덮밥</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img2-8.png" alt="껌승" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>껌승</h4>
+                        <p>숯불향 가득한 돼지고기와 사이공특제소스의 베트남식 덮밥</p>
+                    </div>
+                </div>
+            </div><!-- list end /2 -->
+        </div>
+        <div class="swiper se01_list">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide item">
+                    <img src="img/se01_img3-1.png" alt="사이공 딤섬" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>사이공 딤섬</h4>
+                        <p>통통한 새우와 쫄깃한 만두피가 조화로운 딤섬</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img3-2.png" alt="사이공봉" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>사이공봉</h4>
+                        <p>매콤한 양념과 칠리소스가 조화로운 사이공봉</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img3-3.png" alt="새우볼" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>새우볼</h4>
+                        <p>통통한 새우살로 빚어진 쫀득한 맛</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img3-4.png" alt="짜조" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>짜조</h4>
+                        <p>다진돼지고기와 야채로 어우러진 베트남 만두</p>
+                    </div>
+                </div>
+                <div class="swiper-slide item">
+                    <img src="img/se01_img3-5.png" alt="왕새우튀김" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>왕새우튀김</h4>
+                        <p>왕새우 한 마리가 통째로!</p>
+                    </div>
+                </div>
+
+                <div class="swiper-slide item">
+                    <img src="img/se01_img3-6.png" alt="라이스 치킨텐더" />
+                    <div class="line"></div>
+
+                    <div>
+                        <h4>라이스 치킨텐더</h4>
+                        <p>치킨안심살로 겉은 바삭 속은 부드럽고 촉촉</p>
+                    </div>
+                </div>
+            </div><!-- list end /3 -->
+        </div>
+        <div class="move_text">
+            <p>Tasty - Nutritional Complete - Plant Based - Super Convenient - Healthy Planet - Great Value -
+                Extraordinary
+                Noodle - Low Calorie Tasty - Nutritional Complete - Plant Based - Super Convenient - Healthy Planet -
+                Great Value -
+                Extraordinary
+                Noodle - Low Calorie</p>
+        </div><!-- move_text end -->
+    </section><!-- se01 end -->
+    <section class="se02">
+        <div class="inner">
+            <div class="item">
+                <div>
+                    <h4>미스사이공을 찾아주셔서 <br />감사합니다</h4>
+                    <p>미스사이공은 2020년 1월 기준 203호점의<br />
+                        점주분들과 함께 정보공개서 기준 업계매장수 1위로<br />
+                        건강한 식문화를 선도하고 있습니다.</p>
+                    <span><a href="#">브랜드 스토리</a></span>
+                </div>
+                <img src="img/se02_img01.jpg" alt="흑백면" />
+            </div><!-- item end /1 -->
+            <div class="list">
+                <div class="swiper se02_list">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide item">
+                            <div></div>
+                            <div>
+                                <strong>건대점(오픈예정)</strong>
+                                <p><span>주소</span>서울 광진구 능동로 11길 8-13</p>
+                                <p>전화번호</p>
+                                <p>운영시간</p>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="swiper-slide item">
+                            <div></div>
+                            <div>
+                                <strong>구포점(오픈예정)</strong>
+                                <p><span>주소</span>부산시 구포동 1261-27</p>
+                                <p><span>전화번호</span>010-3150-0889</p>
+                                <p><span>운영시간</span>11:00 ~ 02:00</p>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="swiper-slide item">
+                            <div></div>
+                            <div>
+                                <strong>상월곡점(오픈예정)</strong>
+                                <p>주소</p>
+                                <p>전화번호</p>
+                                <p>운영시간</p>
+                            </div>
+                        </div><!-- .item end -->
+                        <div class="swiper-slide item">
+                            <div></div>
+                            <div>
+                                <strong>청주효촌점(오픈예정)</strong>
+                                <p>주소</p>
+                                <p>전화번호</p>
+                                <p>운영시간</p>
+                            </div>
+                        </div><!-- .item end -->
+
+                    </div><!-- swiper-wrapper end -->
+                </div><!-- se02_list end -->
+                <div class="text_box">
+                    <img src="img/se02_img02_title.png" alt="스토어" />
+                    <p>주변에 가까운 매장을 확인해보세요!</p>
+                    <span><a href="#">전체 매장보기</a></span>
+                </div>
+            </div><!-- list end /-->
+        </div><!-- .inner end -->
+    </section><!-- se02 end -->
+    <section class="se03">
+        <div class="inner">
+            <img src="img/se03_title.png" alt="커뮤니티" />
+            <strong>미스사이공의 다양한 소식을 만나보세요</strong>
+            <div class="se03_box">
+                <div class="mb_box">
+                    <h3>23.02</h3>
+                    <div>
+                        <strong>23년 2월 아동/청소년 기부금 전달</strong>
+                        <p>미스사이공은 학대피해 아동, 위기가정 아동, 의료지원이 필요한 아동, 보호종료 아동(자립준비 청소년) 등 
+                            아동/청소년을 대상으로 돌고(DOLGO)를 통해 기부금 200만원을 전달하였습니다.
+                            </p>
+                    </div>
+                </div><!-- mb_box end -->
+                <img src="img/se03_img.jpg" alt="기부증서" />
+
+            </div><!-- se03_box end -->
+            <span><a href="#">자세히 보기</a></span>
+        </div><!-- inner end -->
+    </section><!-- se03 end -->
+    <section class="se04">
+        <div class="inner">
+            <div class="box">
+                <img src="img/se04_title.png" alt="프랜차이즈" />
+                <img src="img/se04_title02.png" alt="프랜차이즈" />
+                <strong>미스사이공과 함께 하실 점주님을 모집합니다</strong>
+                <p>미스사이공은 정보공개서 기준 베트남 업계 평균 대비 뚜렷한 장점이있습니다.
+                    210% 높은 평당 매출 60% 저렴한 창업 비용, 차별화된브랜딩, 현지의 맛,
+                    착한 가격, 효율적인 운영시스템.따라올 수 없는 국민 쌀국수 미스사이공 입니다.</p>
+                <span><a href="#">가맹문의 바로가기</a></span>
+            </div><!-- box end -->
+        </div><!-- inner end -->
+        <div class="move_text">
+            <p>Tasty - Nutritional Complete - Plant Based - Super Convenient - Healthy Planet - Great Value -
+                Extraordinary
+                Noodle - Low Calorie Tasty - Nutritional Complete - Plant Based - Super Convenient - Healthy Planet -
+                Great Value -
+                Extraordinary
+                Noodle - Low Calorie</p>
+        </div><!-- move_text end -->
+    </section><!-- se04 end -->
+    <footer>
+        <div class="inner">
+            <ul>
+                <li><a href="#">이메일무단수집거부</a></li>
+                <li><a href="#">채용안내</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+            </ul>
+            <p>서울특별시 강동구 성내로 36(성내동 550-2) 예원빌딩 3층 (주)엠푸드에스엔시</p>
+            <p>Tel. 02-422-8222 Fax. 02-2291-8222 사업자등록번호: 211-87-25558</p>
+            <span>ⓒ JMInternational.Co, Ltd</span>
+        </div><!-- inner end -->
+    </footer>
+</body>
+
+</html>
